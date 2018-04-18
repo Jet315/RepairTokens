@@ -1,0 +1,8 @@
+name: RepairTokens
+version: 1.0
+description: A new way in which items can be repaired!
+main: me.jet315.repairtokens.Core
+commands:
+  repairtoken:
+    description: The base command for RepairTokens plugin
+    aliases: [rt]

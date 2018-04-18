@@ -1,0 +1,109 @@
+#Messages
+#Plugins prefix
+PluginsPrefix: "&7[&aRepair&bToken&7] "
+
+#Message that is shown if an item is clicked on an invalid item
+InvalidItem: "%PREFIX%&cThis item cannot be repaired!"
+#Message that is shown if the item is already fully repaired
+ItemAlreadyFullyRepaired: "%PREFIX%&cThis item is already fully repaired!"
+#Message that is shown if the item has been fully repaired by the repair token
+FullyRepaired: "%PREFIX%&aThis item is now fully repaired!"
+#Message that is shown if the item has been partly repaired
+PartlyRepaired: "%PREFIX%&aThis item has been repaired by &c%DURABILITY% &auses!"
+#Message that is shown if a user does not have access to that command
+NoPermission: "%PREFIX%&cNo Permission!"
+
+#The message that is sent to the player when a repair token is given to the that user (when the give command is used)
+#Use %NAME% to get the displayname of the item
+#Use %NUMBER% to get the amount given
+#Type "none" for no message to show
+ReceivedRepairToken: "%PREFIX%&aYou have received a %NUMBER% %NAME%"
+
+#Use %NAME% to get the displayname of the item
+#Use %NUMBER% to get the amount given
+#TYhe message that is sent to the player when everyone on the server receives a token (when the giveall command is used)
+#Type "none" for no message to show
+AllReceivedRepairToken: "%PREFIX%&aEveryone has just received %NUMBER% %NAME%!"
+
+#Repair Items
+RepairItems:
+  Repair1: #The name of the item (used in the give command)
+    item: NETHER_STAR #Must be a valid material (https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html)
+    data: 0 #Used for further material data
+    repairDurability: 10 #The amount that it will repair the items durability by
+    name: "&eRepair Token &7(Tier I)" #Items name
+    lore: #Lore of the item
+      - "&7Increase an items durability by"
+      - "&c%DURABILITY%"
+      - "&7Drag this item onto another to repair it!"
+    setGlow: true #Whether you want the item to have a glow
+    sound: BLOCK_NOTE_PLING #The sound to play, simply type NONE if you wish a sound not play
+  Repair2:
+    item: NETHER_STAR
+    data: 0
+    repairDurability: 50
+    name: "&eRepair Token &7(Tier II)"
+    lore:
+      - "&7Increase an items durability by"
+      - "&c%DURABILITY%"
+      - "&7Drag this item onto another to repair it!"
+    setGlow: true
+    sound: BLOCK_NOTE_PLING
+  Repair3:
+    item: NETHER_STAR
+    data: 0 #Used for further material data
+    repairDurability: 200
+    name: "&eRepair Token &7(Tier III)"
+    lore:
+      - "&7Increase an items durability by"
+      - "&c%DURABILITY%"
+      - "&7Drag this item onto another to repair it!"
+    setGlow: true
+    sound: BLOCK_NOTE_PLING
+
+#Stores the list of items that a token can be applied to
+ValidItems:
+  - DIAMOND_PICKAXE
+  - GOLD_PICKAXE
+  - IRON_PICKAXE
+  - STONE_PICKAXE
+  - WOOD_PICKAXE
+  - DIAMOND_AXE
+  - GOLD_AXE
+  - IRON_AXE
+  - STONE_AXE
+  - WOOD_AXE
+  - DIAMOND_HOE
+  - GOLD_HOE
+  - IRON_HOE
+  - STONE_HOE
+  - WOOD_HOE
+  - STONE_SPADE
+  - DIAMOND_SPADE
+  - GOLD_SPADE
+  - IRON_SPADE
+  - WOOD_SPADE
+  - LEATHER_BOOTS
+  - LEATHER_CHESTPLATE
+  - LEATHER_LEGGINGS
+  - LEATHER_HELMET
+  - CHAINMAIL_BOOTS
+  - CHAINMAIL_CHESTPLATE
+  - CHAINMAIL_HELMET
+  - CHAINMAIL_LEGGINGS
+  - IRON_BOOTS
+  - IRON_LEGGINGS
+  - IRON_CHESTPLATE
+  - IRON_HELMET
+  - DIAMOND_LEGGINGS
+  - DIAMOND_CHESTPLATE
+  - DIAMOND_HELMET
+  - DIAMOND_BOOTS
+  - GOLD_HELMET
+  - GOLD_CHESTPLATE
+  - GOLD_LEGGINGS
+  - GOLD_BOOTS
+  - BOW
+  - FLINT_AND_STEEL
+  - SHEARS
+  - FISHING_ROD
