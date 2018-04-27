@@ -43,13 +43,13 @@ public class GiveTokenCommand extends CommandExecutor {
             return;
         }
 
-        sender.sendMessage(Core.getInstance().getProperties().getPluginPrefix() + ChatColor.GREEN + targetPlayer.getName() + " has been given " + amount + repairItem.getItemStack().getItemMeta().getDisplayName());
+        sender.sendMessage(Core.getInstance().getProperties().getPluginPrefix() + ChatColor.GREEN + targetPlayer.getName() + " has been given " + amount + " " +repairItem.getItemStack().getItemMeta().getDisplayName());
 
         ItemStack repairTokenClone = repairItem.getItemStack().clone();
         repairTokenClone.setAmount(amount);
         targetPlayer.getInventory().addItem(repairTokenClone);
         if (!Core.getInstance().getProperties().getReceivedRepairToken().equalsIgnoreCase("none")) {
-            targetPlayer.sendMessage(Core.getInstance().getProperties().getReceivedRepairToken().replaceAll("%NAME%", repairItem.getItemStack().getItemMeta().getDisplayName()).replaceAll("%NUMBER%", String.valueOf(amount)));
+            targetPlayer.sendMessage(Core.getInstance().getProperties().getReceivedRepairToken().replaceAll("%NAME%", repairItem.getItemStack().getItemMeta().getDisplayName()).replaceAll("%NUMBER%", String.valueOf(amount)).replaceAll("%PREFIX%",Core.getInstance().getProperties().getPluginPrefix()));
 
         }
 

@@ -38,7 +38,7 @@ public class GiveAllTokenCommand extends CommandExecutor {
             sender.sendMessage(Core.getInstance().getProperties().getPluginPrefix() + ChatColor.RED + args[3] + " is not a valid, positive integer!");
             return;
         }
-        sender.sendMessage(Core.getInstance().getProperties().getPluginPrefix() + ChatColor.GREEN + "Everyone has been given " + amount + repairItem.getItemStack().getItemMeta().getDisplayName());
+        sender.sendMessage(Core.getInstance().getProperties().getPluginPrefix() + ChatColor.GREEN + "Everyone has been given " + amount + " " + repairItem.getItemStack().getItemMeta().getDisplayName());
 
         ItemStack repairTokenClone = repairItem.getItemStack().clone();
         repairTokenClone.setAmount(amount);
@@ -47,7 +47,7 @@ public class GiveAllTokenCommand extends CommandExecutor {
         }
 
         if(!Core.getInstance().getProperties().getAllReceivedRepairToken().equalsIgnoreCase("none")){
-            String message = Core.getInstance().getProperties().getAllReceivedRepairToken().replaceAll("%NAME%",repairItem.getItemStack().getItemMeta().getDisplayName()).replaceAll("%NUMBER%",String.valueOf(amount));
+            String message = Core.getInstance().getProperties().getAllReceivedRepairToken().replaceAll("%NAME%",repairItem.getItemStack().getItemMeta().getDisplayName()).replaceAll("%NUMBER%",String.valueOf(amount)).replaceAll("%PREFIX%",Core.getInstance().getProperties().getPluginPrefix());
             for(Player player : Bukkit.getOnlinePlayers()){
                 player.sendMessage(message);
             }

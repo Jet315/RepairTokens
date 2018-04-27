@@ -32,7 +32,7 @@ public class Core extends JavaPlugin {
 
         //Register Command
         getCommand("repairtoken").setExecutor(new CommandHandler());
-        System.out.println("[Houses] Initializing Complete - Time took " + String.valueOf(System.currentTimeMillis()-startTime) +"Ms\n");
+        System.out.println("[RepairToken] Initializing Complete - Time took " + String.valueOf(System.currentTimeMillis()-startTime) +"Ms\n");
 
     }
 
