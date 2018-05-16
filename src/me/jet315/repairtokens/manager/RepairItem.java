@@ -9,11 +9,13 @@ public class RepairItem {
     private ItemStack itemStack;
     private int durabilityToRepair;
     private Sound sound;
+    private boolean spawnParticles;
 
-    public RepairItem(ItemStack itemStack, int durabilityToRepair,Sound sound){
+    public RepairItem(ItemStack itemStack, int durabilityToRepair,Sound sound,boolean spawnParticles){
         this.itemStack = itemStack;
         this.durabilityToRepair = durabilityToRepair;
         this.sound = sound;
+        this.spawnParticles = spawnParticles;
     }
 
     public ItemStack getItemStack() {
@@ -53,4 +55,7 @@ public class RepairItem {
         return false;
     }
 
+    public boolean isSpawnParticles() {
+        return spawnParticles;
+    }
 }

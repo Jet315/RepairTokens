@@ -3,6 +3,7 @@ package me.jet315.repairtokens.listeners;
 import me.jet315.repairtokens.Core;
 import me.jet315.repairtokens.events.TokenUseEvent;
 import me.jet315.repairtokens.manager.RepairItem;
+import me.jet315.repairtokens.utils.ParticleUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -53,6 +54,9 @@ public class InventoryClick implements Listener {
                     if(item.getSound() != null){
                         p.playSound(p.getLocation(),item.getSound(),100,1);
                     }
+                    if(item.isSpawnParticles()){
+                        ParticleUtils.spawnParticles(ParticleUtils.generateHelix((Player) e.getWhoClicked()),(Player) e.getWhoClicked());
+                    }
                     e.setCancelled(true);
                     p.updateInventory();
                     return;
@@ -63,6 +67,9 @@ public class InventoryClick implements Listener {
                 e.getCursor().setAmount(e.getCursor().getAmount()-1);
                 if(item.getSound() != null){
                     p.playSound(p.getLocation(),item.getSound(),100,1);
+                }
+                if(item.isSpawnParticles()){
+                    ParticleUtils.spawnParticles(ParticleUtils.generateHelix((Player) e.getWhoClicked()),(Player) e.getWhoClicked());
                 }
                 e.setCancelled(true);
                 p.updateInventory();

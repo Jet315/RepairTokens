@@ -13,6 +13,7 @@ public class Core extends JavaPlugin {
     private Properties properties;
     private RepairManager repairManager;
     private static Core instance;
+    public static String serverVersion;
 
     public static Core getInstance() {
         return instance;
@@ -24,6 +25,8 @@ public class Core extends JavaPlugin {
         System.out.println("\n[RepairToken] Initializing Plugin");
 
         instance = this;
+        serverVersion = Bukkit.getServer().getClass().getPackage().getName();
+        serverVersion = serverVersion.substring(serverVersion.lastIndexOf(".") + 1);
 
         this.properties = new Properties(this);
         this.repairManager = new RepairManager(this);

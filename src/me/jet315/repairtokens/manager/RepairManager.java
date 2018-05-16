@@ -73,7 +73,10 @@ public class RepairManager {
                 }else{
                     sound = Sound.valueOf(config.getString(path + ".sound"));
                 }
-                RepairItem item = new RepairItem(repairItem,repairDurability,sound);
+                boolean spawnParticles = config.getBoolean(path + ".spawnParticles",true);
+
+
+                RepairItem item = new RepairItem(repairItem,repairDurability,sound,spawnParticles);
                 validTokens.put(repairName,item);
             }catch (Exception e){
                 System.out.println("Error occurred while processing the item " + repairName);

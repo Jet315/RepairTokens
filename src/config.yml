@@ -37,6 +37,7 @@ RepairItems:
       - "&c%DURABILITY%"
       - "&7Drag this item onto another to repair it!"
     setGlow: true #Whether you want the item to have a glow
+    spawnParticles: true #Whether you want a helix to show
     sound: BLOCK_NOTE_PLING #The sound to play, simply type NONE if you wish a sound not play
   Repair2:
     item: NETHER_STAR
@@ -48,6 +49,7 @@ RepairItems:
       - "&c%DURABILITY%"
       - "&7Drag this item onto another to repair it!"
     setGlow: true
+    spawnParticles: true
     sound: BLOCK_NOTE_PLING
   Repair3:
     item: NETHER_STAR
@@ -59,6 +61,7 @@ RepairItems:
       - "&c%DURABILITY%"
       - "&7Drag this item onto another to repair it!"
     setGlow: true
+    spawnParticles: true
     sound: BLOCK_NOTE_PLING
 
 #Stores the list of items that a token can be applied to
