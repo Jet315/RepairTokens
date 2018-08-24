@@ -1,6 +1,7 @@
 package me.jet315.repairtokens;
 
 import me.jet315.repairtokens.commands.CommandHandler;
+import me.jet315.repairtokens.listeners.CraftingListener;
 import me.jet315.repairtokens.listeners.InventoryClick;
 import me.jet315.repairtokens.manager.RepairManager;
 import me.jet315.repairtokens.utils.Properties;
@@ -32,6 +33,7 @@ public class Core extends JavaPlugin {
         this.repairManager = new RepairManager(this);
         //Listeners
         Bukkit.getPluginManager().registerEvents(new InventoryClick(this),this);
+        Bukkit.getPluginManager().registerEvents(new CraftingListener(this),this);
 
         //Register Command
         getCommand("repairtoken").setExecutor(new CommandHandler());

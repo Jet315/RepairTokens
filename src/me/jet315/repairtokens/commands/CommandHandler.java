@@ -36,10 +36,10 @@ public class CommandHandler implements org.bukkit.command.CommandExecutor {
                     sender.sendMessage(ChatColor.GREEN + "/repairtoken giveall <repairtoken> <amount>");
                     sender.sendMessage(ChatColor.GREEN + "/repairtoken reload");
                     sender.sendMessage(ChatColor.GREEN + "/repairtoken list");
-                    return true;
                 }else{
                     sender.sendMessage(Core.getInstance().getProperties().getNoPermission().replaceAll("%PREFIX%",Core.getInstance().getProperties().getPluginPrefix()));
                 }
+                return true;
             }
 
 
@@ -75,6 +75,7 @@ public class CommandHandler implements org.bukkit.command.CommandExecutor {
                 }
             }
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&',Core.getInstance().getProperties().getPluginPrefix() + "&cUnknown Command"));
+            return true;
         }
 
         if(sender.hasPermission("repairtoken.help")){

@@ -50,7 +50,8 @@ public class InventoryClick implements Listener {
                 if((itemClicked.getDurability() - durability) <= 0){
                     itemClicked.setDurability((short) 0);
                     p.sendMessage(instance.getProperties().getFullyRepaired().replaceAll("%PREFIX%",instance.getProperties().getPluginPrefix()));
-                    e.getCursor().setAmount(e.getCursor().getAmount()-1);
+                    //e.getCursor().setAmount(e.getCursor().getAmount()-1);
+                    consumeItem(p,e.getCursor());
                     if(item.getSound() != null){
                         p.playSound(p.getLocation(),item.getSound(),100,1);
                     }
@@ -64,7 +65,8 @@ public class InventoryClick implements Listener {
                 //else just repair the item partially
                 itemClicked.setDurability((short) (itemClicked.getDurability()-durability));
                 p.sendMessage(instance.getProperties().getPartlyRepaired().replaceAll("%PREFIX%",instance.getProperties().getPluginPrefix()).replaceAll("%DURABILITY%",String.valueOf(durability)));
-                e.getCursor().setAmount(e.getCursor().getAmount()-1);
+                //e.getCursor().setAmount(e.getCursor().getAmount()-1);
+                consumeItem(p,e.getCursor());
                 if(item.getSound() != null){
                     p.playSound(p.getLocation(),item.getSound(),100,1);
                 }
@@ -73,9 +75,19 @@ public class InventoryClick implements Listener {
                 }
                 e.setCancelled(true);
                 p.updateInventory();
+
             }
         }
 
+    }
+
+    private void consumeItem(Player p,ItemStack itemStack){
+        if(itemStack.getAmount() > 1){
+            itemStack.setAmount(itemStack.getAmount()-1);
+        }else{
+           p.setItemOnCursor(null);
+           p.updateInventory();
+        }
 
     }
 
