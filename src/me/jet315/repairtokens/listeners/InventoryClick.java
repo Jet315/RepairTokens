@@ -24,6 +24,15 @@ public class InventoryClick implements Listener {
         for(RepairItem item : instance.getRepairManager().getValidTokens().values()){
             if(item.isRepairItem(e.getCursor())){
                 ItemStack itemClicked = e.getCurrentItem();
+
+                //check if stacking
+                if(item.isRepairItem(itemClicked)){
+        /*            if(!Core.getInstance().getProperties().isStackable()){
+                        e.setCancelled(true);
+                    }*/
+                    return;
+                }
+
                 if(itemClicked.getType() == Material.AIR) return;
                 Player p = (Player) e.getWhoClicked();
                 //check if item clicked is valid

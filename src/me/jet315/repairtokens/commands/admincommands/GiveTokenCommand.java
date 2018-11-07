@@ -3,11 +3,17 @@ package me.jet315.repairtokens.commands.admincommands;
 import me.jet315.repairtokens.Core;
 import me.jet315.repairtokens.commands.CommandExecutor;
 import me.jet315.repairtokens.manager.RepairItem;
+import me.jet315.repairtokens.utils.NBTUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class GiveTokenCommand extends CommandExecutor {
 
@@ -46,6 +52,12 @@ public class GiveTokenCommand extends CommandExecutor {
         sender.sendMessage(Core.getInstance().getProperties().getPluginPrefix() + ChatColor.GREEN + targetPlayer.getName() + " has been given " + amount + " " +repairItem.getItemStack().getItemMeta().getDisplayName());
 
         ItemStack repairTokenClone = repairItem.getItemStack().clone();
+
+        if(!Core.getInstance().getProperties().isStackable()) {
+            HashMap<String,String> map = new HashMap<>();
+            map.put(String.valueOf(new Random().nextInt(21490000)),"");
+            repairTokenClone = NBTUtils.setNBTData(repairTokenClone,map);
+        }
         repairTokenClone.setAmount(amount);
         targetPlayer.getInventory().addItem(repairTokenClone);
         if (!Core.getInstance().getProperties().getReceivedRepairToken().equalsIgnoreCase("none")) {
@@ -54,5 +66,7 @@ public class GiveTokenCommand extends CommandExecutor {
         }
 
     }
+
+
 }
 

@@ -48,6 +48,10 @@ public class Properties {
      */
     private String allReceivedRepairToken = "Everyone got a repair token!";
 
+    /**
+     * Stores whether tokens can be stackable
+     */
+    private boolean stackable = true;
 
     public Properties(Core instance){
         this.instance = instance;
@@ -72,7 +76,7 @@ public class Properties {
         receivedRepairToken = ChatColor.translateAlternateColorCodes('&',config.getString("ReceivedRepairToken"));
         allReceivedRepairToken = ChatColor.translateAlternateColorCodes('&',config.getString("AllReceivedRepairToken"));
 
-
+        stackable = config.getBoolean("Stackable");
     }
 
     //Reloads the config
@@ -132,5 +136,9 @@ public class Properties {
 
     public String getReceivedRepairToken() {
         return receivedRepairToken;
+    }
+
+    public boolean isStackable() {
+        return stackable;
     }
 }

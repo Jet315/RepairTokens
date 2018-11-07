@@ -40,6 +40,7 @@ public class RepairItem {
      * @return True if they are the same, false otherwise
      */
     public boolean isRepairItem(ItemStack item){
+        if (item == null) return false;
         if(item.getType() == itemStack.getType()){
             if(item.getItemMeta().getDisplayName().equals(itemStack.getItemMeta().getDisplayName())){
                 if(itemStack.getItemMeta().getLore() == null){
